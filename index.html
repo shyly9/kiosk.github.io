@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiosk Check-in</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Roboto;
+            background-image: url('img/Background.png'); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 3.5rem;
+            margin: -50px auto 0px auto;
+            padding: 0px 0px 0px 0px;
+        }
+        .p1 {
+            font-size: 2.7rem;
+            margin: 30px auto -10px auto;
+            padding: 0px 0px 0px 0px;
+        }
+        .p2 {
+            font-size: 1.9rem;
+            margin: -10px auto 40px auto;
+            padding: 0px 0px 0px 0px;
+        }
+        .airlines {
+            display: flex;
+            gap: 35px;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1000px;
+        }
+        #chatbot {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            transform: translate(-7px, -7px);
+        }
+        .airline-button {
+            width: 419px;
+            height: 180px;
+            background-color: transparent; 
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+        }
+
+        .airline-button img {
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain; 
+            border-radius: 5px;
+        }
+ 
+        df-messenger {
+            --df-messenger-bot-message: #f0f8ff;
+            --df-messenger-button-titlebar-color: #4a90e2;
+            --df-messenger-button-titlebar-font-color: #ffffff;
+            --df-messenger-chat-background-color: #ffffff;
+            --df-messenger-font-color: #333333;
+            --df-messenger-input-box-color: #f7f7f7;
+            --df-messenger-input-font-color: #333333;
+            --df-messenger-input-placeholder-font-color: #999999;
+            --df-messenger-minimized-chat-close-icon-color: #e74c3c;
+            --df-messenger-send-icon: #4a90e2;
+            --df-messenger-user-message: #d1e7dd;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SELF CHECK-IN</h1>
+        <p class="p1">Select Your Airline to Begin</p><br>
+        <p class="p2">Chọn hãng hàng không để bắt đầu</p>
+        <div class="airlines">
+            <button class="airline-button"><img src="img/VietnamAirlines.png" alt="Vietnam Airlines"></button>
+            <button class="airline-button"><img src="img/VietjetAir.png" alt="VietJet Air"></button>
+            <button class="airline-button"><img src="img/Jetstar.png" alt="Jetstar Pacific"></button>
+            <button class="airline-button"><img src="img/BambooAirways.png" alt="Bamboo Airways"></button>
+        </div>
+        
+    </div>
+
+    <!-- Chatbot từ Dialogflow -->
+    <div id="chatbot">
+        <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+        <df-messenger
+        chat-icon="https:&#x2F;&#x2F;previews.dropbox.com&#x2F;p&#x2F;thumb&#x2F;ACcoCOHms-XAkxgp2PqIKUNqtvsUhbdZfDeywIUjSancIr2OydDDlQUKWkPGVo8es4q1OSNISQmr5Hf7FoJfMyS2EEdU9cyH9iOfDrdlZrmbVL6jDK6S558DMccXrRAKfQ9baVGXgVayOp6AmNwcJFQvVcuxxImN10r-OHBcnLg1r7AT--xgrDbctJorl3otVS-5S4HCLLA6CfetIITFNZRkXv3OuAsSmYvW6OezzpkzASM8ybUC9pGARLvRGylQv1_Jq7-GGrr6h_Whf9wcYzRgYe4zKvMgHUAhkS5KOsBpynMhh963-WcC-r9UO5_NrzdIQeWnTqOivGPpC3TXkSDV&#x2F;p.png"
+        intent="WELCOME"
+        chat-title="ShyShy - trợ lý ảo của bạn!"
+        agent-id="5dbf2a50-368c-4bd4-8e87-adcec2b3d517"
+        language-code="vi"
+        ></df-messenger>
+    </div>
+
+    <script src="dialogflow.js"></script>
+    
+</body>
+</html>
